@@ -5,19 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenido</title>
     <style>
-        body { margin: 0; padding: 10px; font-family: Arial, sans-serif; }
-        video { width: 100%; height: auto; max-width: 500px; }
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #e8f6f3;
+            color: #1f423d;
+        }
+        .content {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 18px;
+            font-size: 2rem;
+        }
+        .video-box {
+            margin: auto;
+            max-width: 700px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,.12);
+        }
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        p {
+            margin-top: 16px;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
     </style>
 </head>
-<body bgcolor="#E8F6F3">
-    <h1 align="center">¡Bienvenido!</h1>
-    <div align="center">
-        <video width="360" height="280" controls autoplay muted>
-            <source src="videos/prevención.mp4" type="video/mp4">
-            Tu navegador no soporta el elemento de video.
-        </video>
+<body>
+    <div class="content">
+        <h1>¡Bienvenido!</h1>
+        <div class="video-box">
+            <video controls autoplay muted playsinline>
+                <source src="videos/Prevención.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
+        </div>
+        <p>Selecciona un enlace del menú para ver el contenido o reproducir cualquiera de los videos.</p>
+        <p>En móviles, usa el botón "Mostrar menú" para abrir y cerrar la navegación sin ocupar toda la pantalla.</p>
     </div>
-    <p align="center">Selecciona un enlace del menú lateral para ver su contenido.</p>
-    <p align="center">Aquí se mostrará algunos de los videos que surgieron durante pandemia.</p>
 </body>
 </html>

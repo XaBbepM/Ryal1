@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de Video</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #e8f6f3;
+            color: #1f423d;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 1.9rem;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+        .player {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 16px 34px rgba(0,0,0,.12);
+        }
+        video {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            display: block;
+        }
+        .message {
+            margin-top: 18px;
+            padding: 16px;
+            border-radius: 14px;
+            background: #f1fcf8;
+            border: 1px solid #cde8df;
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+        a {
+            color: #1f7d63;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Reproductor de Video</h1>
+        <div class="player" id="playerContainer"></div>
+        <div class="message" id="message"></div>
+    </div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const src = params.get('src');
+        const playerContainer = document.getElementById('playerContainer');
+        const message = document.getElementById('message');
+        if (!src) {
+            message.textContent = 'No se encontró la ruta del video. Vuelve al menú y selecciona un video.';
+        } else {
+            const decodedSrc = decodeURIComponent(src);
+            const video = document.createElement('video');
+            video.controls = true;
+            video.autoplay = true;
+            video.muted = true;
+            video.playsInline = true;
+            const source = document.createElement('source');
+            source.src = decodedSrc;
+            source.type = 'video/mp4';
+            video.appendChild(source);
+            playerContainer.appendChild(video);
+            message.innerHTML = 'Si el video no comienza solo, presiona play en el reproductor.';
+        }
+    </script>
+</body>
+</html>
